@@ -25,7 +25,8 @@ jobs:
         with:
           version: 8
 
-      - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
+      #--distribute-on="5 linux-medium-js"
+#      - run: pnpm exec nx-cloud start-ci-run  --stop-agents-after="build"
       # Cache node_modules
       - uses: actions/setup-node@v3
         with:
