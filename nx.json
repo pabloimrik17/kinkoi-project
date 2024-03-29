@@ -8,5 +8,16 @@
       "{workspaceRoot}/babel.config.json",
       "{workspaceRoot}/.github/workflows/ci.yml"
     ]
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "test":{
+      "cache": true
+    }
   }
 }
