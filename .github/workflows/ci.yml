@@ -18,7 +18,7 @@ jobs:
           version: 8
 
             # --distribute-on="5 linux-medium-js"
-      - run: npx exec nx-cloud start-ci-run --stop-agents-after="build"
+      - run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build"
 
       - name: Restore cached npm dependencies
         id: cache-dependencies-restore
