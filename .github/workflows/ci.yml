@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
 
       # --distribute-on="5 linux-medium-js"
-      - run: npx nx-cloud start-ci-run --stop-agents-after="build"
+      - run: npx -y nx-cloud start-ci-run --stop-agents-after="build"
 
       - uses: pnpm/action-setup@v2
         with:
