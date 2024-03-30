@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:dev": "tsc -w",
+    "build": "tsc",
     "test": "echo \"Fake test\" && exit 0"
   },
   "keywords": [],
