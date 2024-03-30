@@ -110,6 +110,10 @@ importers:
         version: 5.4.3
 
   libs/data:
+    dependencies:
+      '@kinkoi/domain':
+        specifier: '*'
+        version: link:../domain
     devDependencies:
       typescript:
         specifier: ^5.4.3
