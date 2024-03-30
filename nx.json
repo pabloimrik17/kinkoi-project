@@ -9,7 +9,11 @@
     ]
   },
   "targetDefaults": {
+    "start:dev": {
+      "cache": false
+    },
     "build": {
+      "dependsOn": ["^build"],
       "cache": true
     },
     "lint": {
