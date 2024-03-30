@@ -1,8 +1,9 @@
 {
-  "name": "domain",
+  "name": "@kinkoi/domain",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/*/**.d.ts",
   "scripts": {
     "start:dev": "tsc -w",
     "build": "tsc",

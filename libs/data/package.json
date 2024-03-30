@@ -1,8 +1,9 @@
 {
-  "name": "data",
+  "name": "@kinkoi/data",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/*/**.d.ts",
   "scripts": {
     "start:dev": "tsc -w",
     "build": "tsc",
@@ -13,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@kinkoi/domain": "*"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "dashboard",
+  "name": "@kinkoi/dashboard",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
