@@ -48,6 +48,9 @@ jobs:
       - run: pnpm nx affected -t lint test build --parallel=3
 #      - run: pnpm nx affected -t e2e --parallel=1
 
+      - name: Display structure
+        run: ls -R
+
       - name: Upload API coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
         with:
