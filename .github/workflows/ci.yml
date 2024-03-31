@@ -50,7 +50,9 @@ jobs:
       - name: Upload API coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
         with:
-          files: ./apps/api/coverage/lcov.info
+          directory: ./apps/api/coverage
+          fail_ci_if_error: true
+          files: ./lcov.info
           flags: api
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: pabloimrik17/kinkoi-project
