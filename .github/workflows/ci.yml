@@ -46,13 +46,13 @@ jobs:
 #      - run: git branch --track main origin/main
 
       - name: "Affected lint"
-        run: pnpm nx affected -t lint --nxBail=true parallel=false
+        run: pnpm nx affected -t lint
 
       - name: "Affected test"
-        run: pnpm nx affected -t test --nxBail=true parallel=false
+        run: pnpm nx affected -t test
 
       - name: "Affected builds"
-        run: pnpm nx affected -t build --nxBail=true parallel=false
+        run: pnpm nx affected -t build
 #      - run: pnpm nx affected -t e2e --parallel=1
 
       - name: Display structure
