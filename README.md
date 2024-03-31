@@ -15,9 +15,12 @@ Aquí te presentamos los objetivos de nuestro proyecto, con su estado actual.
 - ❌: Cancelado
 - 🎯: Futuro
 
-| Estado | Objetivo                                                                                        |
-| --- |-------------------------------------------------------------------------------------------------|
-| ✅ | **Crear monorepo base:** Crear con Nx y aplicaciones base Astro, Nestjs y librerias Typescript. |
+| Estado | Objetivo                                                                                                                                      |
+| -- |-----------------------------------------------------------------------------------------------------------------------------------------------|
+| ✅ | **Crear monorepo base:** Crear con Nx y aplicaciones base Astro, Nestjs y librerias Typescript.                                               |
+| ✅ | **Configurar Nx Cloud**                                                                                                                       |
+| ✅ | **Configuración base de CI:** Añadir github actions para lanzar tareas test, lint y build intengrando con Nx Cloud y cacheado de dependencias |
+| 🚀 | **Codecov:** Configurarlo para la API e integrarlo con github actions                                                                         |
 
 
 **Estos son los avances planeados y su estado actual.**
