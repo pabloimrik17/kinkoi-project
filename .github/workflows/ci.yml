@@ -45,7 +45,8 @@ jobs:
       # This line is needed for nx affected to work when CI is running on a PR
 #      - run: git branch --track main origin/main
 
-      - run: pnpm nx affected -t lint test build --parallel=3
+      # Removed parallel
+      - run: pnpm nx affected -t lint test build
 #      - run: pnpm nx affected -t e2e --parallel=1
 
       - name: Display structure
