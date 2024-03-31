@@ -16,13 +16,13 @@ jobs:
       # --distribute-on="5 linux-medium-js"
       - run: npx -y nx-cloud start-ci-run --stop-agents-after="build"
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
 
       - name: Restore cached npm dependencies
         id: cache-dependencies-restore
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: |
             node_modules
@@ -32,7 +32,7 @@ jobs:
 
       - name: Cache npm dependencies
         id: cache-dependencies-save
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
           path: |
             node_modules
@@ -48,7 +48,7 @@ jobs:
 #      - run: pnpm nx affected -t e2e --parallel=1
 
       - name: Upload API coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v4
         with:
           directory: ./apps/api/coverage
           fail_ci_if_error: true
