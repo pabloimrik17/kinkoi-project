@@ -8,5 +8,6 @@ export class DataMain {
 
 export const dataMainInit = (): DataMain => {
     domainMainInit()
+    console.log("test")
     return new DataMain()
 }
