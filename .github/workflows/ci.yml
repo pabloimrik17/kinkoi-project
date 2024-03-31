@@ -41,7 +41,13 @@ jobs:
             ~/.cache/Cypress # needed for the Cypress binary
           key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}
 
-      - uses: nrwl/nx-set-shas@v3
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        id: setSHAs
+        uses: nrwl/nx-set-shas@v4
+
+      - run: |
+          echo "BASE: ${{ steps.setSHAs.outputs.base }}"
+          echo "HEAD: ${{ steps.setSHAs.outputs.head }}"
       # This line is needed for nx affected to work when CI is running on a PR
 #      - run: git branch --track main origin/main
 
