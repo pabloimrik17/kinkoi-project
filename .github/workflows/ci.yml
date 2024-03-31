@@ -50,6 +50,6 @@ jobs:
         uses: codecov/codecov-action@v4.0.1
         with:
           files: ./apps/api/coverage/lcov.info
-          flag: api
+          flags: api
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: pabloimrik17/kinkoi-project
