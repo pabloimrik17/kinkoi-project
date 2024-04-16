@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       # --distribute-on="5 linux-medium-js"
-      - run: npx -y nx-cloud start-ci-run --stop-agents-after="lint"
+      - run: npx -y nx-cloud start-ci-run --stop-agents-after="build"
 
       - uses: pnpm/action-setup@v3
         with:
@@ -49,7 +49,7 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
 
-      - run: pnpm nx affected -t lint
+      - run: pnpm nx affected -t lint test build
 #      - run: pnpm nx affected -t e2e --parallel=1
 
       - name: Upload API coverage reports to Codecov
