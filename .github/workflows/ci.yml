@@ -18,12 +18,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      # --distribute-on="5 linux-medium-js"
-      - run: npx -y nx-cloud start-ci-run --stop-agents-after="build"
-
       - uses: pnpm/action-setup@v3
         with:
           version: 8
+      # --distribute-on="5 linux-medium-js"
+      - run: pnpm dlx nx-cloud start-ci-run --stop-agents-after="build"
 
       - name: Restore cached npm dependencies
         id: cache-dependencies-restore
