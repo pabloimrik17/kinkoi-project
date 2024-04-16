@@ -4,9 +4,9 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
-    "@nx/js": "18.2.1",
-    "nx": "18.2.1"
+    "@nx/js": "18.2.4",
+    "nx": "18.2.4",
+    "nx-cloud": "^18.0.0"
   }
 }
