@@ -1,9 +1,12 @@
 {
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "nxCloudAccessToken": "MjRjYzE3Y2YtNzM1Zi00OGJlLWI5ZjgtMTljMjc4ZGE3ZmY4fHJlYWQtd3JpdGU=",
+  "nxCloudAccessToken": "ZjIwODZjNTgtMWQ4Yi00NDk4LTgxZDUtZjYyNzcwNDU2NmQ5fHJlYWQtd3JpdGU=",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "sharedGlobals": [
       "{workspaceRoot}/.github/workflows/ci.yml"
     ]
@@ -13,13 +16,15 @@
       "cache": false
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "cache": true
     },
     "lint": {
       "cache": true
     },
-    "test":{
+    "test": {
       "cache": true
     }
   }
