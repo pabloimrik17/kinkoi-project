@@ -6,8 +6,7 @@
   "types": "dist/*/**.d.ts",
   "scripts": {
     "start:dev": "tsc -w",
-    "build": "tsc",
-    "test": "echo \"Fake test\" && exit 0"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

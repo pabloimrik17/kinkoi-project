@@ -45,10 +45,19 @@ jobs:
           key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}
 
       - uses: nrwl/nx-set-shas@v4
-
       # This line is needed for nx affected to work when CI is running on a PR
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
 
       - run: pnpm nx affected -t lint test build
 #      - run: pnpm nx affected -t e2e --parallel=1
+
+      - name: Upload API coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          directory: ./apps/api/coverage
+          fail_ci_if_error: true
+          files: ./lcov.info
+          flags: api
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: pabloimrik17/kinkoi-project
