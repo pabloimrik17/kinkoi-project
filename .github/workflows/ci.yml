@@ -18,9 +18,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # --distribute-on="5 linux-medium-js"
-      - run: npx -y nx-cloud start-ci-run --stop-agents-after="lint"
-
       - uses: pnpm/action-setup@v3
         with:
           version: 8
@@ -44,12 +41,15 @@ jobs:
             ~/.cache/Cypress # needed for the Cypress binary
           key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}
 
+      # --distribute-on="5 linux-medium-js"
+      - run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build"
+
       - uses: nrwl/nx-set-shas@v4
       # This line is needed for nx affected to work when CI is running on a PR
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
 
-      - run: pnpm nx affected -t lint
+      - run: pnpm exec nx affected -t lint test build --no-cloud
 #      - run: pnpm nx affected -t e2e --parallel=1
 
       - name: Upload API coverage reports to Codecov
