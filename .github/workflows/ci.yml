@@ -49,7 +49,7 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
 
-      - run: pnpm exec nx affected -t lint test build --verbose
+      - run: pnpm exec nx affected -t lint test build --verbose --no-cloud
 #      - run: pnpm nx affected -t e2e --parallel=1
 
       - name: Upload API coverage reports to Codecov
