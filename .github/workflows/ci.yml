@@ -60,7 +60,6 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           directory: ./apps/api/coverage
-          fail_ci_if_error: true
           files: ./lcov.info
           flags: api
           token: ${{ secrets.CODECOV_TOKEN }}
