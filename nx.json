@@ -1,7 +1,6 @@
 {
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "nxCloudAccessToken": "ZjIwODZjNTgtMWQ4Yi00NDk4LTgxZDUtZjYyNzcwNDU2NmQ5fHJlYWQtd3JpdGU=",
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",
