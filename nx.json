@@ -26,5 +26,6 @@
     "test": {
       "cache": true
     }
-  }
+  },
+  "nxCloudAccessToken": "MTExZGY3MGYtNWFlYi00MmEwLWFjOGQtMTI2YTk0MWY4OWMxfHJlYWQtd3JpdGU="
 }
