@@ -2,6 +2,10 @@
   "name": "kinkoi-project",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "20.10.0",
+    "pnpm": "8.15.5"
+  },
   "scripts": {},
   "private": true,
   "devDependencies": {
