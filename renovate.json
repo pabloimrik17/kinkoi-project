@@ -6,5 +6,8 @@
   "timezone": "Europe/Madrid",
   "schedule": [
     "after 9am on monday"
+  ],
+  "reviewers": [
+    "pabloimrik17"
   ]
 }
