@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:best-practices", ":dependencyDashboard", "group:monorepos"
+  ],
+  "timezone": "Europe/Madrid",
+  "schedule": [
+    "after 9am on monday"
+  ],
+  "reviewers": [
+    "pabloimrik17"
   ]
 }
