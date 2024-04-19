@@ -6,12 +6,16 @@
     "node": "20.10.0",
     "pnpm": "8.15.5"
   },
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky"
+  },
   "private": true,
   "devDependencies": {
     "@commitlint/cli": "^19.2.2",
     "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/types": "^19.0.3",
     "@nx/js": "18.2.4",
+    "husky": "^9.0.11",
     "nx": "18.2.4",
     "nx-cloud": "^18.0.0"
   }

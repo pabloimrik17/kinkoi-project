@@ -33,3 +33,5 @@ Aquí te presentamos los objetivos de nuestro proyecto, con su estado actual.
 
 
 **Estos son los avances planeados y su estado actual.**
+
+https://github.com/muravjev/configs/tree/main?tab=readme-ov-file
