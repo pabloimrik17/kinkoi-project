@@ -13,7 +13,13 @@
         "clean": "rimraf \"**/node_modules\" && pnpm -r clean",
         "fresh": "pnpm clean && pnpm i",
         "nuke": "rimraf pnpm-lock.yaml && pnpm fresh",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "lint": "eslint",
+        "lint:check": "pnpm lint --cache --max-warnings 170 .",
+        "lint:fix": "pnpm lint --cache --max-warnings 170 --fix .",
+        "format": "prettier",
+        "format:check": "pnpm format . --check --debug-check",
+        "format:fix": "pnpm format . --write"
     },
     "private": true,
     "devDependencies": {
@@ -26,6 +32,7 @@
         "nx": "18.2.4",
         "nx-cloud": "^18.0.0",
         "prettier": "^3.2.5",
-        "prettier-plugin-organize-imports": "^3.2.4"
+        "prettier-plugin-organize-imports": "^3.2.4",
+        "rimraf": "^5.0.5"
     }
 }
