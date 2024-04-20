@@ -15,21 +15,21 @@ Aquí te presentamos los objetivos de nuestro proyecto, con su estado actual.
 -   ❌: Cancelado
 -   🎯: Futuro
 
-| Estado | Objetivo |
-| |-----------------------------------------------------------------------------------------------------------------------------------------------|
-| ✅ | **Crear monorepo base:** Crear con Nx y aplicaciones base Astro, Nestjs y librerias Typescript. |
-| ✅ | **Configurar Nx Cloud** |
-| ✅ | **Configuración base de CI:** Añadir github actions para lanzar tareas test, lint y build intengrando con Nx Cloud y cacheado de dependencias |
-| ✅ | **Codecov:** Configurarlo para la API e integrarlo con github actions |
-| ✅ | **Renovate/Dependabot** |
-| 🚀 | **Commitlint + Husky** |
-| 🚀 | **Prettier** |
-| ⏳ | **Eslint** |
-| ⏳ | **Astro deploy (con Terraform)** |
-| ⏳ | **API deploy (con Terraform)** |
-| ⏳ | **Configure PostgreSQL** |
-| ⏳ | **Configure Docker/Docker Compose** |
-| ⏳ | **Update PNPM to V9** |
+| Status | Goal                                                                                                                       |
+| ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| ✅     | **Create base monorepo:** Create with Nx and base Astro, Nestjs and Typescript libraries.                                  |
+| ✅     | **Configure Nx Cloud**                                                                                                     |
+| ✅     | **Basic CI setup:** Add github actions to run test, lint, and build tasks integrating with Nx Cloud and dependency caching |
+| ✅     | **Codecov:** Configure it for the API and integrate it with github actions                                                 |
+| ✅     | **Renovate/Dependabot**                                                                                                    |
+| 🚀     | **Commitlint + Husky**                                                                                                     |
+| 🚀     | **Prettier**                                                                                                               |
+| ⏳     | **Eslint**                                                                                                                 |
+| ⏳     | **Astro deploy (with Terraform)**                                                                                          |
+| ⏳     | **API deploy (with Terraform)**                                                                                            |
+| ⏳     | **Configure PostgreSQL**                                                                                                   |
+| ⏳     | **Configure Docker/Docker Compose**                                                                                        |
+| ⏳     | **Update PNPM to V9**                                                                                                      |
 
 **Estos son los avances planeados y su estado actual.**
 
