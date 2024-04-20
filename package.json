@@ -18,5 +18,8 @@
     "husky": "^8.0.3",
     "nx": "18.2.4",
     "nx-cloud": "^18.0.0"
+  },
+  "dependencies": {
+    "lint-staged": "^15.2.2"
   }
 }
