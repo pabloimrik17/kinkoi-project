@@ -1,0 +1,6 @@
+node_modules/
+pnpm-lock.yaml
+
+# Ignore artifacts:
+build
+coverage
