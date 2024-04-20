@@ -22,8 +22,8 @@ Aquí te presentamos los objetivos de nuestro proyecto, con su estado actual.
 | ✅     | **Basic CI setup:** Add github actions to run test, lint, and build tasks integrating with Nx Cloud and dependency caching |
 | ✅     | **Codecov:** Configure it for the API and integrate it with github actions                                                 |
 | ✅     | **Renovate/Dependabot**                                                                                                    |
-| 🚀     | **Commitlint + Husky**                                                                                                     |
-| 🚀     | **Prettier**                                                                                                               |
+| ✅     | **Commitlint + Husky**                                                                                                     |
+| ✅     | **Prettier**                                                                                                               |
 | ⏳     | **Eslint**                                                                                                                 |
 | ⏳     | **Astro deploy (with Terraform)**                                                                                          |
 | ⏳     | **API deploy (with Terraform)**                                                                                            |
