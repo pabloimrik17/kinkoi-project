@@ -1,13 +1,15 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices", ":dependencyDashboard", "group:monorepos"
-  ],
-  "timezone": "Europe/Madrid",
-  "schedule": [
-    "after 9am on monday"
-  ],
-  "reviewers": [
-    "pabloimrik17"
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:best-practices",
+        ":dependencyDashboard",
+        "group:monorepos"
+    ],
+    "timezone": "Europe/Madrid",
+    "schedule": [
+        "after 10pm every weekday",
+        "before 5am every weekday",
+        "every weekend"
+    ],
+    "reviewers": ["pabloimrik17"]
 }
