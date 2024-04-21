@@ -18,15 +18,18 @@ jobs:
             CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
         steps:
-            - uses: actions/checkout@v4
+            - name: Checkout code
+              uses: actions/checkout@v4
               with:
                   fetch-depth: 0
 
-            - uses: actions/setup-node@v4
+            - name: Setup Nodejs
+              uses: actions/setup-node@v4
               with:
                   node-version: 20.12.2
 
-            - uses: pnpm/action-setup@v3
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v3
               with:
                   version: 8.15.7
 
@@ -38,7 +41,9 @@ jobs:
                       node_modules
                       ~/.cache/Cypress # needed for the Cypress binary
                   key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
-            - run: pnpm install --frozen-lockfile
+
+            - name: Install monorepo dependencies
+              run: pnpm install --frozen-lockfile
 
             - name: Cache npm dependencies
               id: cache-dependencies-save
@@ -50,7 +55,8 @@ jobs:
                   key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}
 
             # --distribute-on="5 linux-medium-js"
-            - run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
+            - name: Start Nx Cloud
+              run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
 
             - uses: nrwl/nx-set-shas@v4
             # This line is needed for nx affected to work when CI is running on a PR
