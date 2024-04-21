@@ -6,10 +6,6 @@
         "group:monorepos"
     ],
     "timezone": "Europe/Madrid",
-    "schedule": [
-        "after 10pm every weekday",
-        "before 5am every weekday",
-        "every weekend"
-    ],
+    "schedule": ["before 4am on the first day of the month"],
     "reviewers": ["pabloimrik17"]
 }
