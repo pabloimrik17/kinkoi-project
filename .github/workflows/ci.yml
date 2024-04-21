@@ -1,70 +1,70 @@
 name: CI
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+    push:
+        branches:
+            - main
+    pull_request:
 
 # Needed for nx-set-shas when run on the main branch
 permissions:
-  actions: read
-  contents: read
+    actions: read
+    contents: read
 
 jobs:
-  main:
-    runs-on: ubuntu-latest
+    main:
+        runs-on: ubuntu-latest
 
-    env:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        env:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20.10.0
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20.12.2
 
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8.15.5
+            - uses: pnpm/action-setup@v3
+              with:
+                  version: 8.15.5
 
-      - name: Restore cached npm dependencies
-        id: cache-dependencies-restore
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            node_modules
-            ~/.cache/Cypress # needed for the Cypress binary
-          key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
-      - run: pnpm install --frozen-lockfile
+            - name: Restore cached npm dependencies
+              id: cache-dependencies-restore
+              uses: actions/cache/restore@v4
+              with:
+                  path: |
+                      node_modules
+                      ~/.cache/Cypress # needed for the Cypress binary
+                  key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
+            - run: pnpm install --frozen-lockfile
 
-      - name: Cache npm dependencies
-        id: cache-dependencies-save
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            node_modules
-            ~/.cache/Cypress # needed for the Cypress binary
-          key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}
+            - name: Cache npm dependencies
+              id: cache-dependencies-save
+              uses: actions/cache/save@v4
+              with:
+                  path: |
+                      node_modules
+                      ~/.cache/Cypress # needed for the Cypress binary
+                  key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}
 
-      # --distribute-on="5 linux-medium-js"
-      - run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
+            # --distribute-on="5 linux-medium-js"
+            - run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
 
-      - uses: nrwl/nx-set-shas@v4
-      # This line is needed for nx affected to work when CI is running on a PR
-      - run: git branch --track main origin/main
-        if: ${{ github.event_name == 'pull_request' }}
+            - uses: nrwl/nx-set-shas@v4
+            # This line is needed for nx affected to work when CI is running on a PR
+            - run: git branch --track main origin/main
+              if: ${{ github.event_name == 'pull_request' }}
 
-      - run: pnpm exec nx affected -t lint test build #--no-cloud #--verbose
-#      - run: pnpm nx affected -t e2e --parallel=1
+            - run: pnpm exec nx affected -t lint test build #--no-cloud #--verbose
+            #      - run: pnpm nx affected -t e2e --parallel=1
 
-      - name: Upload API coverage reports to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          directory: ./apps/api/coverage
-          files: ./lcov.info
-          flags: api
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: pabloimrik17/kinkoi-project
+            - name: Upload API coverage reports to Codecov
+              uses: codecov/codecov-action@v4
+              with:
+                  directory: ./apps/api/coverage
+                  files: ./lcov.info
+                  flags: api
+                  token: ${{ secrets.CODECOV_TOKEN }}
+                  slug: pabloimrik17/kinkoi-project
