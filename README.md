@@ -3,17 +3,23 @@
 ![Build Status](https://github.com/pabloimrik17/kinkoi-project/actions/workflows/ci.yml/badge.svg?branch=main)
 [![codecov](https://codecov.io/gh/pabloimrik17/kinkoi-project/graph/badge.svg?token=RGADUH6FV4)](https://codecov.io/gh/pabloimrik17/kinkoi-project)
 
+## 🚀 Live Deployment Status of Projects
+
+| Project   | Deployment Status                                                                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dashboard | [![Netlify Status](https://api.netlify.com/api/v1/badges/0464ae3e-cc04-4ca4-a266-c656a64642ff/deploy-status)](https://app.netlify.com/sites/dev-kinkoi-dashboard/deploys) |
+
 ## Roadmap
 
-Aquí te presentamos los objetivos de nuestro proyecto, con su estado actual.
+Here are the objectives of our project, with their current status.
 
-### Leyenda de estados:
+### Status Legend:
 
--   ⏳: En espera
--   🚀: En curso
--   ✅: Finalizado
--   ❌: Cancelado
--   🎯: Futuro
+-   ⏳: On hold
+-   🚀: In progress
+-   ✅: Completed
+-   ❌: Cancelled
+-   🎯: Future
 
 | Status | Goal                                                                                                                       |
 | ------ | -------------------------------------------------------------------------------------------------------------------------- |
@@ -25,12 +31,12 @@ Aquí te presentamos los objetivos de nuestro proyecto, con su estado actual.
 | ✅     | **Commitlint + Husky**                                                                                                     |
 | ✅     | **Prettier**                                                                                                               |
 | ⏳     | **Eslint**                                                                                                                 |
-| ⏳     | **Astro deploy (with Terraform)**                                                                                          |
+| ✅     | **Astro deploy**                                                                                                           |
 | ⏳     | **API deploy (with Terraform)**                                                                                            |
 | ⏳     | **Configure PostgreSQL**                                                                                                   |
 | ⏳     | **Configure Docker/Docker Compose**                                                                                        |
 | ⏳     | **Update PNPM to V9**                                                                                                      |
 
-**Estos son los avances planeados y su estado actual.**
+**These are the planned advances and their current status.**
 
 https://github.com/muravjev/configs/tree/main?tab=readme-ov-file
