@@ -55,7 +55,7 @@ jobs:
               uses: nrwl/nx-set-shas@v4
 
             - name: Build Astro
-              run: nx run @kinkoi/dashboard:build
+              run: pnpm exec nx run @kinkoi/dashboard:build
 
             - name: Deploy to Netlify
               uses: netlify/actions/cli@master
