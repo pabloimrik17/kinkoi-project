@@ -58,12 +58,16 @@ jobs:
             - name: Start Nx Cloud
               run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
 
-            - uses: nrwl/nx-set-shas@v4
+            - name: Set Nx SHA
+              uses: nrwl/nx-set-shas@v4
+
             # This line is needed for nx affected to work when CI is running on a PR
-            - run: git branch --track main origin/main
+            - name: Set track branch for nx affected (PR ONLY)
+              run: git branch --track main origin/main
               if: ${{ github.event_name == 'pull_request' }}
 
-            - run: pnpm exec nx affected -t lint test build #--no-cloud #--verbose
+            - name: Execute lint test and build (only affected)
+              run: pnpm exec nx affected -t lint test build #--no-cloud #--verbose
             #      - run: pnpm nx affected -t e2e --parallel=1
 
             - name: Upload API coverage reports to Codecov
