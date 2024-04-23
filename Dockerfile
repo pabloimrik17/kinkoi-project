@@ -18,9 +18,11 @@ RUN pnpm deploy --filter=api --prod /prod/api
 
 
 # API APP
-FROM node:20.12.2-alpine
 FROM base AS api
 COPY --from=build /prod/api ./prod/api
+RUN ls -la /prod
+RUN ls -la /prod/api
+RUN ls -la /prod/api/dist
 WORKDIR /prod/api
 EXPOSE 8000
 CMD [ "pnpm", "run", "start:prod"]
