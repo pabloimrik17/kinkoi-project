@@ -13,7 +13,9 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm exec nx run-many -t api:build
+RUN ls -la /user/src/app/apps/api
 RUN pnpm deploy --filter=api --prod /prod/api
+RUN ls -la /user/src/app/apps/api
 #RUN pnpm deploy --filter=app2 --prod /prod/app2
 
 
@@ -22,7 +24,6 @@ FROM base AS api
 COPY --from=build /prod/api ./prod/api
 RUN ls -la /prod
 RUN ls -la /prod/api
-RUN ls -la /prod/api/dist
 WORKDIR /prod/api
 EXPOSE 8000
 CMD [ "pnpm", "run", "start:prod"]
