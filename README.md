@@ -32,7 +32,7 @@ Here are the objectives of our project, with their current status.
 | ✅     | **Prettier**                                                                                                               |
 | ⏳     | **Eslint**                                                                                                                 |
 | ✅     | **Astro deploy**                                                                                                           |
-| 🚀     | **Configure Docker for API**                                                                                               |
+| ✅     | **Configure Docker for API**                                                                                               |
 | ⏳     | **Configure Docker for Dashboard**                                                                                         |
 | ⏳     | **Docker Compose**                                                                                                         |
 | ⏳     | **API deploy (with Docker)**                                                                                               |
