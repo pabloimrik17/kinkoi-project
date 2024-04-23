@@ -13,15 +13,14 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm exec nx run-many -t api:build
-RUN ls -la /apps/api
 RUN pnpm deploy --filter=api --prod /prod/api
-RUN ls -la /apps/api
+RUN ls -la /prod/api
 #RUN pnpm deploy --filter=app2 --prod /prod/app2
 
 
 # API APP
 FROM base AS api
-COPY --from=build /prod/api ./prod/api
+COPY --from=build /prod/api /prod/api
 RUN ls -la /prod
 RUN ls -la /prod/api
 WORKDIR /prod/api
