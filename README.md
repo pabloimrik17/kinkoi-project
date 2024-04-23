@@ -36,6 +36,7 @@ Here are the objectives of our project, with their current status.
 | ⏳     | **Configure PostgreSQL**                                                                                                   |
 | ⏳     | **Configure Docker/Docker Compose**                                                                                        |
 | ⏳     | **Update PNPM to V9**                                                                                                      |
+| ⏳     | **Rethink CI/CD Workflows**                                                                                                |
 
 **These are the planned advances and their current status.**
 
