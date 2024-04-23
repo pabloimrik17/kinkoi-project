@@ -32,10 +32,13 @@ Here are the objectives of our project, with their current status.
 | ✅     | **Prettier**                                                                                                               |
 | ⏳     | **Eslint**                                                                                                                 |
 | ✅     | **Astro deploy**                                                                                                           |
-| ⏳     | **API deploy (with Terraform)**                                                                                            |
+| ✅     | **Configure Docker for API**                                                                                               |
+| ⏳     | **Configure Docker for Dashboard**                                                                                         |
+| ⏳     | **Docker Compose**                                                                                                         |
+| ⏳     | **API deploy (with Docker)**                                                                                               |
 | ⏳     | **Configure PostgreSQL**                                                                                                   |
-| ⏳     | **Configure Docker/Docker Compose**                                                                                        |
 | ⏳     | **Update PNPM to V9**                                                                                                      |
+| ⏳     | **Rethink CI/CD Workflows**                                                                                                |
 
 **These are the planned advances and their current status.**
 
