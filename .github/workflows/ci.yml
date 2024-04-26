@@ -19,12 +19,12 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v4
+              uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
               with:
                   fetch-depth: 0
 
             - name: Setup Nodejs
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
               with:
                   node-version: 20.12.2
 
@@ -35,7 +35,7 @@ jobs:
 
             - name: Restore cached npm dependencies
               id: cache-dependencies-restore
-              uses: actions/cache/restore@v4
+              uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
               with:
                   path: |
                       node_modules
@@ -47,7 +47,7 @@ jobs:
 
             - name: Cache npm dependencies
               id: cache-dependencies-save
-              uses: actions/cache/save@v4
+              uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
               with:
                   path: |
                       node_modules
@@ -59,7 +59,7 @@ jobs:
               run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
 
             - name: Set Nx SHA
-              uses: nrwl/nx-set-shas@v4
+              uses: nrwl/nx-set-shas@76907e7e5d3cd17ddb5e2b123389f054bffcdd03 # v4
 
             # This line is needed for nx affected to work when CI is running on a PR
             - name: Set track branch for nx affected (PR ONLY)
@@ -71,7 +71,7 @@ jobs:
             #      - run: pnpm nx affected -t e2e --parallel=1
 
             - name: Upload API coverage reports to Codecov
-              uses: codecov/codecov-action@v4
+              uses: codecov/codecov-action@84508663e988701840491b86de86b666e8a86bed # v4
               with:
                   directory: ./apps/api/coverage
                   files: ./lcov.info
