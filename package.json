@@ -13,7 +13,7 @@
         "clean": "rimraf \"**/node_modules\" && pnpm -r clean",
         "fresh": "pnpm clean && pnpm i",
         "nuke": "rimraf pnpm-lock.yaml && pnpm fresh",
-        "prepare": "husky install",
+        "prepare": "husky",
         "lint": "eslint",
         "lint:check": "pnpm lint --cache --max-warnings 170 .",
         "lint:fix": "pnpm lint --cache --max-warnings 170 --fix .",
