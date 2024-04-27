@@ -5,6 +5,7 @@
         ":dependencyDashboard",
         "group:monorepos"
     ],
+    "ignoreDeps": ["@kinkoi/domain", "@kinkoi/data"],
     "timezone": "Europe/Madrid",
     "schedule": ["before 4am on the first day of the month"],
     "reviewers": ["pabloimrik17"],
