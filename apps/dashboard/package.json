@@ -1,20 +1,21 @@
 {
-  "name": "@kinkoi/dashboard",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "start:dev": "astro dev",
-    "start:dev:check": "astro check --watch",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "astro": "^4.5.12",
-    "typescript": "^5.4.3"
-  },
-  "devDependencies": {
-    "@codecov/vite-plugin": "0.0.1-beta.6"
-  }
+    "name": "@kinkoi/dashboard",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "start:dev": "astro dev",
+        "start:dev:check": "astro check --watch",
+        "build": "astro check && astro build",
+        "preview": "astro preview --port 8080",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.5.10",
+        "@astrojs/node": "^8.2.5",
+        "astro": "^4.5.12",
+        "typescript": "^5.4.3"
+    },
+    "devDependencies": {
+        "@codecov/vite-plugin": "0.0.1-beta.6"
+    }
 }
