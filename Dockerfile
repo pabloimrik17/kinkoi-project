@@ -19,7 +19,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . .
 
 # TODO IN FUTURE THIS WILL BE JUST run-many -t build
-RUN pnpm exec nx run-many -t build -p api -p @kinkoi/dashboard --skipNxCache
+RUN pnpm exec nx run-many -t build -p api -p @kinkoi/dashboard
 
 RUN pnpm deploy --filter=api --prod /prod/api
 RUN pnpm deploy --filter=@kinkoi/dashboard --prod /prod/kinkoi-dashboard
@@ -28,10 +28,10 @@ RUN pnpm deploy --filter=@kinkoi/dashboard --prod /prod/kinkoi-dashboard
 FROM base AS kinkoi-dashboard
 COPY --from=build /prod/kinkoi-dashboard /prod/kinkoi-dashboard
 WORKDIR /prod/kinkoi-dashboard
+
 ENV HOST=0.0.0.0
 ENV PORT=4321
 EXPOSE 4321
-RUN ls
 
 CMD ["node",  "dist/server/entry.mjs"]
 
@@ -40,4 +40,5 @@ CMD ["node",  "dist/server/entry.mjs"]
 FROM base AS api
 COPY --from=build /prod/api /prod/api
 WORKDIR /prod/api
+
 CMD [ "pnpm", "run", "start:prod"]
