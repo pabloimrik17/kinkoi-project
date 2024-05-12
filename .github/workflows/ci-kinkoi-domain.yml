@@ -1,25 +1,28 @@
-name: CD - DEV Dashboard (Netlify)
+name: ci-kinkoi-domain
+
 on:
-    workflow_run:
-        workflows: CI
-        types:
-            - completed
+    push:
+        paths:
+            - "libs/domain/**"
+            - "*.*"
         branches:
             - main
+    pull_request:
         paths:
-            - "apps/dashboard/**"
+            - "libs/domain/**"
+            - "*.*"
+
+# Needed for nx-set-shas when run on the main branch
+permissions:
+    actions: read
+    contents: read
 
 jobs:
-    build_and_deploy-failure:
+    main:
         runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
 
-        steps:
-            - run: echo 'The triggering workflow failed'
-
-    build_and_deploy-success:
-        runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        env:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
         steps:
             - name: Checkout code
@@ -65,8 +68,24 @@ jobs:
             - name: Set Nx SHA
               uses: nrwl/nx-set-shas@76907e7e5d3cd17ddb5e2b123389f054bffcdd03 # v4
 
-            - name: Build Astro
-              run: pnpm exec nx run @kinkoi/dashboard:build
+            # This line is needed for nx affected to work when CI is running on a PR
+            - name: Set track branch for nx affected (PR ONLY)
+              if: ${{ github.event_name == 'pull_request' }}
+              run: git branch --track main origin/main
 
-            - name: Deploy to Netlify
-              run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }} --filter api --dir=./apps/dashboard/dist --prod
+            - name: Execute lint test and build for affected files (PR ONLY)
+              if: ${{ github.event_name == 'pull_request' }}
+              run: pnpm exec nx affected -t lint test build --files=libs/domain
+
+            - name: Execute lint test and build for affected files (PR ONLY)
+              if: ${{ github.event_name == 'push' }}
+              run: pnpm exec nx run-many -p @kinkoi/domain -t lint test build
+
+            # - name: Upload domain coverage reports to Codecov
+            #  uses: codecov/codecov-action@84508663e988701840491b86de86b666e8a86bed # v4
+            #  with:
+            #      directory: ./libs/domain/coverage
+            #      files: ./lcov.info
+            #      flags: kinkoi/domain
+            #      token: ${{ secrets.CODECOV_TOKEN }}
+            #      slug: pabloimrik17/kinkoi-project

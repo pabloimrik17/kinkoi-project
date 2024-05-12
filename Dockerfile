@@ -19,8 +19,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . .
 
 # TODO IN FUTURE THIS WILL BE JUST run-many -t build
-RUN pnpm exec nx run-many -t build -p api -p @kinkoi/dashboard
-
+RUN pnpm exec nx run-many -t build -p @kinkoi/api -p @kinkoi/dashboard
 RUN pnpm deploy --filter=api --prod /prod/api
 RUN pnpm deploy --filter=@kinkoi/dashboard --prod /prod/kinkoi-dashboard
 
