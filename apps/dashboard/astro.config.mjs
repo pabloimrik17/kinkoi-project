@@ -1,11 +1,10 @@
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import { defineConfig } from "astro/config";
 
-import node from "@astrojs/node";
-
 // https://astro.build/config
 export default defineConfig({
-    output: "server",
+    // Enable for SSR
+    // output: "server",
     vite: {
         plugins: [
             // Put the Codecov vite plugin after all other plugins
@@ -16,7 +15,8 @@ export default defineConfig({
             }),
         ],
     },
-    adapter: node({
-        mode: "standalone",
-    }),
+    // Enable for SSR
+    // adapter: node({
+    //    mode: "standalone",
+    // }),
 });
