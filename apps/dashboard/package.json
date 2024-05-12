@@ -2,6 +2,13 @@
     "name": "@kinkoi/dashboard",
     "type": "module",
     "version": "0.0.1",
+    "engines": {
+        "node": "20.12.2",
+        "pnpm": "9.0.6",
+        "npm": "please-use-pnpm",
+        "yarn": "please-use-pnpm"
+    },
+    "packageManager": "pnpm@9.0.6",
     "scripts": {
         "start:dev": "astro dev",
         "start:dev:check": "astro check --watch",
