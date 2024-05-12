@@ -67,4 +67,4 @@ jobs:
               run: pnpm exec nx run @kinkoi/dashboard:build
 
             - name: Deploy to Netlify
-              run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }} --filter api --dir=./apps/dashboard/dist --prod
+              run: netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }} --filter @kinkoi/dashboard  --dir=./apps/dashboard/dist --prod
