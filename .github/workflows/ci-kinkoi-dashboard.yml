@@ -4,13 +4,13 @@ on:
     push:
         paths:
             - "apps/dashboard/**"
-            - "*"
+            - "*.*"
         branches:
             - main
     pull_request:
         paths:
             - "apps/dashboard/**"
-            - "*"
+            - "*.*"
 
 # Needed for nx-set-shas when run on the main branch
 permissions:
