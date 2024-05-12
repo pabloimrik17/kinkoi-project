@@ -75,6 +75,6 @@ jobs:
               with:
                   directory: ./apps/api/coverage
                   files: ./lcov.info
-                  flags: api
+                  flags: kinkoi/api
                   token: ${{ secrets.CODECOV_TOKEN }}
                   slug: pabloimrik17/kinkoi-project
