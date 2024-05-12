@@ -1,9 +1,16 @@
-name: CI
+name: ci-kinkoi-domain
+
 on:
     push:
+        paths:
+            - "libs/domain/**"
+            - "*.*"
         branches:
             - main
     pull_request:
+        paths:
+            - "libs/domain/**"
+            - "*.*"
 
 # Needed for nx-set-shas when run on the main branch
 permissions:
@@ -63,18 +70,22 @@ jobs:
 
             # This line is needed for nx affected to work when CI is running on a PR
             - name: Set track branch for nx affected (PR ONLY)
-              run: git branch --track main origin/main
               if: ${{ github.event_name == 'pull_request' }}
+              run: git branch --track main origin/main
 
-            - name: Execute lint test and build (only affected)
-              run: pnpm exec nx affected -t lint test build #--no-cloud #--verbose
-            #      - run: pnpm nx affected -t e2e --parallel=1
+            - name: Execute lint test and build for affected files (PR ONLY)
+              if: ${{ github.event_name == 'pull_request' }}
+              run: pnpm exec nx affected -t lint test build --files=libs/domain
 
-            - name: Upload API coverage reports to Codecov
-              uses: codecov/codecov-action@84508663e988701840491b86de86b666e8a86bed # v4
-              with:
-                  directory: ./apps/api/coverage
-                  files: ./lcov.info
-                  flags: kinkoi/api
-                  token: ${{ secrets.CODECOV_TOKEN }}
-                  slug: pabloimrik17/kinkoi-project
+            - name: Execute lint test and build for affected files (PR ONLY)
+              if: ${{ github.event_name == 'push' }}
+              run: pnpm exec nx run-many -p @kinkoi/domain -t lint test build
+
+            # - name: Upload domain coverage reports to Codecov
+            #  uses: codecov/codecov-action@84508663e988701840491b86de86b666e8a86bed # v4
+            #  with:
+            #      directory: ./libs/domain/coverage
+            #      files: ./lcov.info
+            #      flags: kinkoi/domain
+            #      token: ${{ secrets.CODECOV_TOKEN }}
+            #      slug: pabloimrik17/kinkoi-project
