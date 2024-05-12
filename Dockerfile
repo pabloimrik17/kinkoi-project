@@ -9,17 +9,36 @@ RUN corepack enable
 
 # Stage 2 - the build process
 FROM base AS build
+
+# TODO Review this so we can take from cache the step and skip dependencies install
 COPY . /usr/src/app
 WORKDIR /usr/src/app
+
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+
+COPY . .
+
 # TODO IN FUTURE THIS WILL BE JUST run-many -t build
-RUN pnpm exec nx run-many -t build -p api
+RUN pnpm exec nx run-many -t build -p api -p @kinkoi/dashboard
+
 RUN pnpm deploy --filter=api --prod /prod/api
-#RUN pnpm deploy --filter=app2 --prod /prod/app2
+RUN pnpm deploy --filter=@kinkoi/dashboard --prod /prod/kinkoi-dashboard
+
+# ASTRO APP
+FROM base AS kinkoi-dashboard
+COPY --from=build /prod/kinkoi-dashboard /prod/kinkoi-dashboard
+WORKDIR /prod/kinkoi-dashboard
+
+ENV HOST=0.0.0.0
+ENV PORT=4321
+EXPOSE 4321
+
+CMD ["node",  "dist/server/entry.mjs"]
 
 
 # API APP
 FROM base AS api
 COPY --from=build /prod/api /prod/api
 WORKDIR /prod/api
+
 CMD [ "pnpm", "run", "start:prod"]
