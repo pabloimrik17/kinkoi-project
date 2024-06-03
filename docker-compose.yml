@@ -1,17 +1,17 @@
 version: "3.8"
 services:
-    api:
+    kinkoi-api:
         build:
+            dockerfile: dockerfile-api
             context: .
-            target: api
         ports:
             - "8080:8080"
         #environment:
         #- PNPM_HOME="/pnpm"
         #- PATH="$PNPM_HOME:$PATH"
         volumes:
-            - ./apps/api:/prod/api
-            - /apps/api/node_modules
+            #            - ./apps/api:/prod/api
+            - /prod/api/node_modules
 
     kinkoi-dashboard:
         build:
