@@ -28,7 +28,7 @@
         "@commitlint/types": "19.0.3",
         "@nx/js": "18.3.3",
         "husky": "9.0.11",
-        "lint-staged": "15.2.2",
+        "lint-staged": "15.2.10",
         "netlify-cli": "17.22.1",
         "nx": "18.3.3",
         "nx-cloud": "18.0.1",
