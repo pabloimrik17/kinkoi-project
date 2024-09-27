@@ -61,7 +61,7 @@ jobs:
               run: pnpm exec nx-cloud start-ci-run --stop-agents-after="build" --use-dte-by-default=false
 
             - name: Set Nx SHA
-              uses: nrwl/nx-set-shas@76907e7e5d3cd17ddb5e2b123389f054bffcdd03 # v4
+              uses: nrwl/nx-set-shas@be2a36618456ad6f3abf921eb24900817da1af6b # v4
 
             - name: Build Astro
               run: pnpm exec nx run @kinkoi/dashboard:build
