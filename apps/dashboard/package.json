@@ -16,6 +16,6 @@
         "typescript": "^5.4.3"
     },
     "devDependencies": {
-        "@codecov/vite-plugin": "0.0.1-beta.6"
+        "@codecov/vite-plugin": "0.0.1-beta.12"
     }
 }
